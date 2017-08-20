@@ -5,7 +5,7 @@
 
 #define BASE 0 // default layer
 #define SYMB 1 // symbols
-#define MDIA 2 // media keys
+#define WINS 2 // windows
 
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTRL,       KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_LBRC,
         KC_LCTRL, KC_LALT, KC_NO, KC_LGUI, KC_RGUI,
-                                                             KC_LALT, TG(MDIA),
+                                                             KC_LALT, TG(WINS),
                                                                       KC_HOME,
                                                      KC_SPC, KC_LSFT, KC_END,
         // right hand
@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 ,------|------|------|       |------+------+------.
  *                                 |Bright|Bright|      |       |      |Hue-  |Hue+  |
  *                                 |ness- |ness+ |------|       |------|      |      |
- *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      | Reset|       |      |      |      |
  *                                 `--------------------'       `--------------------'
  */
 // SYMBOLS
@@ -89,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           EPRM,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
                                        RGB_MOD,KC_TRNS,
                                                KC_TRNS,
-                               RGB_VAD,RGB_VAI,KC_TRNS,
+                               RGB_VAD,RGB_VAI,RESET,
        // right hand
        KC_TRNS, KC_F6,   KC_F7,  KC_F8,   KC_F9,   KC_F10,  KC_F11,
        KC_TRNS, KC_UP,   KC_7,   KC_8,    KC_9,    KC_ASTR, KC_F12,
@@ -100,46 +100,48 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,
        KC_TRNS, RGB_HUD, RGB_HUI
 ),
-/* Keymap 2: Media and mouse keys
+/* Keymap 2: Windows layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |  RESET |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * | ESC    |   1  |   2  |   3  |   4  |   5  |      |           |      |   6  |   7  |   8  |   9  |   0  |  BS    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |      |      | MsUp |      |      |      |           |      |      |      |      |      |      |        |
+ * | Tab    |   Q  |   W  |   E  |   R  |   T  |  `   |           |  '   |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |MsLeft|MsDown|MsRght|      |------|           |------|      |      |      |      |      |  Play  |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |      |      |      |      |      |           |      |      |      | Prev | Next |      |        |
+ * | LCtrl  |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   -    |
+ * |--------+------+------+------+------+------|  [   |           |  ]   |------+------+------+------+------+--------|
+ * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |      |      | Lclk | Rclk |                                       |VolUp |VolDn | Mute |      |      |
+ *   | LCtrl| LAlt |      | ZKHK | LCtrl|                                       | Left | Down |  Up  | Right|   L1 |
  *   `----------------------------------'                                       `----------------------------------'
- *                                        ,-------------.       ,-------------.
- *                                        |      |      |       |      |      |
- *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      |      |       |      |      |Brwser|
- *                                 |      |      |------|       |------|      |Back  |
- *                                 |      |      |      |       |      |      |      |
- *                                 `--------------------'       `--------------------'
+ *                                        ,-------------.       ,---------------.
+ *                                        | LAlt | L3   |       | Left | Right  |
+ *                                 ,------|------|------|       |------+--------+------.
+ *                                 |      |      | Home |       | UP   |        |      |
+ *                                 | Space|LShift|------|       |------| BS     | Enter|
+ *                                 |      |      | End  |       | Down |        |      |
+ *                                 `--------------------'       `----------------------'
  */
-// MEDIA AND MOUSE
-[MDIA] = KEYMAP(
-       RESET,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_U, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_R, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_BTN1, KC_BTN2,
-                                           KC_TRNS, KC_TRNS,
-                                                    KC_TRNS,
-                                  KC_TRNS, KC_TRNS, KC_TRNS,
-    // right hand
-       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MPLY,
-       KC_TRNS,  KC_TRNS, KC_TRNS, KC_MPRV, KC_MNXT, KC_TRNS, KC_TRNS,
-                          KC_VOLU, KC_VOLD, KC_MUTE, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS,
-       KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_WBAK
+// If it accepts an argument (i.e, is a function), it doesn't need KC_.
+// Otherwise, it needs KC_*
+[WINS] = KEYMAP(  // layer 0 : default
+        // left hand
+        KC_ESC,         KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   KC_NO,
+        KC_TAB,         KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_GRV,
+        KC_LCTRL,       KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
+        KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_LBRC,
+        KC_LCTRL, KC_LALT, KC_NO, KC_ZKHK, KC_LCTRL,
+                                                             KC_LALT, KC_TRNS,
+                                                                      KC_HOME,
+                                                     KC_SPC, KC_LSFT, KC_END,
+        // right hand
+        KC_NO,       KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             KC_BSPC,
+        KC_QUOT,     KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_BSLS,
+                     KC_H,   KC_J,  KC_K,   KC_L,   KC_SCLN,          KC_MINS,
+        KC_RBRC,     KC_N,   KC_M,  KC_COMM,KC_DOT, KC_SLSH,          KC_EQL,
+                                 KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, TG(SYMB),
+        KC_LEFT, KC_RGHT,
+        KC_UP,
+        KC_DOWN, KC_BSPC, KC_ENT
 ),
 };
 
