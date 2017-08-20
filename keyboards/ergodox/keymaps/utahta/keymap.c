@@ -4,7 +4,7 @@
 #include "version.h"
 
 #define BASE 0 // default layer
-#define SYMB 1 // symbols
+#define FNCK 1 // function key
 #define WINS 2 // windows
 
 enum custom_keycodes {
@@ -53,52 +53,51 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_QUOT,     KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_BSLS,
                      KC_H,   KC_J,  KC_K,   KC_L,   KC_SCLN,          KC_MINS,
         KC_RBRC,     KC_N,   KC_M,  KC_COMM,KC_DOT, KC_SLSH,          KC_EQL,
-                                 KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, TG(SYMB),
+                                 KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, TG(FNCK),
         KC_LEFT, KC_RGHT,
         KC_UP,
         KC_DOWN, KC_BSPC, KC_ENT
     ),
-/* Keymap 1: Symbol Layer
+/* Keymap 1: Function key Layer
  *
- * ,---------------------------------------------------.           ,--------------------------------------------------.
- * |Version  |  F1  |  F2  |  F3  |  F4  |  F5  |      |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
- * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
- * |         |   !  |   @  |   {  |   }  |   |  |      |           |      |   Up |   7  |   8  |   9  |   *  |   F12  |
- * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |         |   #  |   $  |   (  |   )  |   `  |------|           |------| Down |   4  |   5  |   6  |   +  |        |
- * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |         |   %  |   ^  |   [  |   ]  |   ~  |      |           |      |   &  |   1  |   2  |   3  |   \  |        |
- * `---------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | EPRM  |      |      |      |      |                                       |      |    . |   0  |   =  |      |
- *   `-----------------------------------'                                       `----------------------------------'
- *                                        ,-------------.       ,-------------.
- *                                        |Animat|      |       |Toggle|Solid |
- *                                 ,------|------|------|       |------+------+------.
- *                                 |Bright|Bright|      |       |      |Hue-  |Hue+  |
- *                                 |ness- |ness+ |------|       |------|      |      |
- *                                 |      |      | Reset|       |      |      |      |
- *                                 `--------------------'       `--------------------'
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * | ESC    |   F1 |   F2 |   F3 |   F4 |   F5 |      |           |      |   F6 |   F7 |   F8 |   F9 |  F10 |  BS    |
+ * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+ * | Tab    |   Q  |   W  |   E  |   R  |   T  |  `   |           |  '   |   Y  |   U  |   I  |   O  |   P  |   \    |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * | LCtrl  |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   -    |
+ * |--------+------+------+------+------+------|  [   |           |  ]   |------+------+------+------+------+--------|
+ * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   =    |
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   | LCtrl| LAlt |      | LCnd | RCmd |                                       | Left | Down |  Up  | Right|   L1 |
+ *   `----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,---------------.
+ *                                        | LAlt | L3   |       | Left | Right  |
+ *                                 ,------|------|------|       |------+--------+------.
+ *                                 |      |      | Home |       | UP   |        |      |
+ *                                 | Space|LShift|------|       |------| BS     | Enter|
+ *                                 |      |      | End  |       | Down |        |      |
+ *                                 `--------------------'       `----------------------'
  */
-// SYMBOLS
-[SYMB] = KEYMAP(
-       // left hand
-       VRSN,   KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_TRNS,
-       KC_TRNS,KC_EXLM,KC_AT,  KC_LCBR,KC_RCBR,KC_PIPE,KC_TRNS,
-       KC_TRNS,KC_HASH,KC_DLR, KC_LPRN,KC_RPRN,KC_GRV,
-       KC_TRNS,KC_PERC,KC_CIRC,KC_LBRC,KC_RBRC,KC_TILD,KC_TRNS,
-          EPRM,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
-                                       RGB_MOD,KC_TRNS,
-                                               KC_TRNS,
-                               RGB_VAD,RGB_VAI,RESET,
-       // right hand
-       KC_TRNS, KC_F6,   KC_F7,  KC_F8,   KC_F9,   KC_F10,  KC_F11,
-       KC_TRNS, KC_UP,   KC_7,   KC_8,    KC_9,    KC_ASTR, KC_F12,
-                KC_DOWN, KC_4,   KC_5,    KC_6,    KC_PLUS, KC_TRNS,
-       KC_TRNS, KC_AMPR, KC_1,   KC_2,    KC_3,    KC_BSLS, KC_TRNS,
-                         KC_TRNS,KC_DOT,  KC_0,    KC_EQL,  KC_TRNS,
-       RGB_TOG, RGB_SLD,
-       KC_TRNS,
-       KC_TRNS, RGB_HUD, RGB_HUI
+[FNCK] = KEYMAP(  // layer 1 : function key
+        // left hand
+        KC_TRNS, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                                                     KC_TRNS, KC_TRNS,
+                                                              KC_TRNS,
+                                            KC_TRNS, KC_TRNS, RESET,
+        // right hand
+        KC_TRNS, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS,
+        KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS
 ),
 /* Keymap 2: Windows layer
  *
@@ -138,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_QUOT,     KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_JYEN,
                      KC_H,   KC_J,  KC_K,   KC_L,   KC_SCLN,          KC_MINS,
         KC_BSLS,     KC_N,   KC_M,  KC_COMM,KC_DOT, KC_SLSH,          KC_RO,
-                                 KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, TG(SYMB),
+                                 KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, TG(FNCK),
         KC_LEFT, KC_RGHT,
         KC_UP,
         KC_DOWN, KC_BSPC, KC_ENT
@@ -146,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 const uint16_t PROGMEM fn_actions[] = {
-    [1] = ACTION_LAYER_TAP_TOGGLE(SYMB)                // FN1 - Momentary Layer 1 (Symbols)
+    [1] = ACTION_LAYER_TAP_TOGGLE(FNCK)                // FN1 - Momentary Layer 1 (Function key)
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
