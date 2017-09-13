@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | Home |       | UP   |        |      |
  *                                 | Space|LShift|------|       |------| BS     | Enter|
- *                                 |      |      | End  |       | Down |        |      |
+ *                                 |      |      | Reset|       | Down |        |      |
  *                                 `--------------------'       `----------------------'
  */
 [FNCK] = KEYMAP(  // layer 1 : function key
@@ -102,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 2: Windows layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | ESC    |   1  |   2  |   3  |   4  |   5  |  ;   |           |      |   6  |   7  |   8  |   9  |   0  | BS/DEL |
+ * | ESC    |   1  |   2  |   3  |   4  |   5  |  ;   |           | PSCR |   6  |   7  |   8  |   9  |   0  | BS/DEL |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    |   Q  |   W  |   E  |   R  |   T  |  ^   |           |  *   |   Y  |   U  |   I  |   O  |   P  |   ¥    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -133,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                       KC_HOME,
                                                      KC_SPC, KC_LSFT, KC_END,
         // right hand
-        KC_NO,       KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             MT(KC_DEL, KC_BSPC),
+        KC_PSCR,     KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             MT(KC_DEL, KC_BSPC),
         KC_QUOT,     KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_JYEN,
                      KC_H,   KC_J,  KC_K,   KC_L,   KC_SCLN,          KC_MINS,
         KC_BSLS,     KC_N,   KC_M,  KC_COMM,KC_DOT, KC_SLSH,          KC_RO,
