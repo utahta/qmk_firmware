@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        | LAlt | L3   |       | Left | Right  |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | Home |       | UP   |        |      |
- *                                 | Space|LShift|------|       |------| BS     | Enter|
+ *                                 | Space|LShift|------|       |------| Space  | Enter|
  *                                 |      |      | End  |       | Down |        |      |
  *                                 `--------------------'       `----------------------'
  */
@@ -57,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, TG(FNCK),
         TG(FF14), KC_RGHT,
         KC_UP,
-        KC_DOWN, KC_BSPC, KC_ENT
+        KC_DOWN, KC_SPC, KC_ENT
     ),
 /* Keymap 1: Function key Layer
  *
@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        | LAlt | L3   |       | Left | Right  |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | Home |       | UP   |        |      |
- *                                 | Space|LShift|------|       |------| BS     | Enter|
+ *                                 | Space|LShift|------|       |------| Space  | Enter|
  *                                 |      |      | Reset|       | Down |        |      |
  *                                 `--------------------'       `----------------------'
  */
@@ -117,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        | LAlt | TGL  |       | Left | Right  |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | Home |       | UP   |        |      |
- *                                 | Space|LShift|------|       |------| BS     | Enter|
+ *                                 | Space|LShift|------|       |------| Space  | Enter|
  *                                 |      |      | End  |       | Down |        |      |
  *                                 `--------------------'       `----------------------'
  */
@@ -141,7 +141,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, TG(FNCK),
         KC_LEFT, KC_RGHT,
         KC_UP,
-        KC_DOWN, KC_BSPC, KC_ENT
+        KC_DOWN, KC_SPC, KC_ENT
     ),
 /* Keymap 3: FF14 for mac layer
  *
@@ -160,7 +160,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        | LAlt | TGL  |       | TGL  | Right  |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | Home |       | UP   |        |      |
- *                                 | Space|LShift|------|       |------| BS     | Enter|
+ *                                 | Space|LShift|------|       |------| Space  | Enter|
  *                                 |      |      | End  |       | Down |        |      |
  *                                 `--------------------'       `----------------------'
  */
@@ -184,7 +184,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_TRNS,
         KC_TRNS, KC_RGHT,
         KC_UP,
-        KC_DOWN, KC_BSPC, KC_ENT
+        KC_DOWN, KC_SPC, KC_ENT
     ),
 };
 

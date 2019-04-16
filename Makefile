@@ -598,3 +598,10 @@ BUILD_DATE := NA
 endif
 
 include $(ROOT_DIR)/testlist.mk
+
+docker/build:
+	docker build -t qmk_firmware .
+
+docker/run:
+	docker run --rm -v $(pwd):/qmk:rw qmk_firmware
+
