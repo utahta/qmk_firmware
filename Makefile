@@ -603,5 +603,5 @@ docker/build:
 	docker build -t qmk_firmware .
 
 docker/run:
-	docker run --rm -v $(pwd):/qmk:rw qmk_firmware
+	docker run --rm -v `pwd`:/qmk:rw qmk_firmware
 
